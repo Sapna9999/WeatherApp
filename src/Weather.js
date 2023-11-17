@@ -27,40 +27,20 @@ const Weather = () => {
     }
   };
 
-  const getForecast = async () => {
-    try {
-      const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${unit}&appid=YOUR_API_KEY`
-      );
-
-      // Assuming the forecast data is available in response.data.list
-      // Adjust this based on the actual structure of the API response
-      setWeatherData((prevData) => ({
-        ...prevData,
-        forecast: response.data.list,
-      }));
-    } catch (error) {
-      console.error('Error fetching forecast:', error);
-    }
-  };
-
   const switchUnit = () => {
     setUnit((prevUnit) => (prevUnit === 'metric' ? 'imperial' : 'metric'));
   };
 
   useEffect(() => {
-    getWeather();
-    getForecast();
-  }, [unit, city]); // Re-run the effect when 'unit' or 'city' changes
+    getWeather(); 
+  }, [unit]); // Re-run the effect when 'unit' changes
 
   const getWeatherIcon = (iconCode) => {
     switch (iconCode) {
       case '01d':
-        return faSun;
       case '01n':
         return faSun;
       case '02d':
-        return faCloud;
       case '02n':
         return faCloud;
       case '03d':
@@ -80,7 +60,7 @@ const Weather = () => {
         return faSun; // Default to a sun icon
     }
   };
-
+  
   return (
     <div className='outer-wrapper'>
     <div className='inner-wrapper'>
@@ -106,12 +86,13 @@ const Weather = () => {
 
       {weatherData && (
         <div>
-          <h3>{weatherData.name}</h3>
-          <p>{weatherData.weather[0].description}</p>
-          <p>
-            <FontAwesomeIcon icon={getWeatherIcon(weatherData.weather[0].icon)} />
-            Temperature: {weatherData.main.temp}°{unit === 'metric' ? 'C' : 'F'}
-          </p>
+        <h3>{weatherData.name}</h3>
+        <p>{weatherData.weather[0].description}</p>
+        <p>
+          <FontAwesomeIcon icon={getWeatherIcon(weatherData.weather[0].icon)} />
+          &nbsp;
+          Temperature: {weatherData.main.temp}°{unit === 'metric' ? 'C' : 'F'}
+        </p>
         </div>
       )}
     </div>
