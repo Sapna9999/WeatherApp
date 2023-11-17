@@ -11,3 +11,47 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.error {
+  color: red;
+}
+.outer-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.inner-wrapper {
+  width: 60%;
+  border: 1px dotted skyblue;
+  border-radius: 8px;
+  box-shadow: 5px 10px #19c3fb24;
+}
+.weather-app {
+  padding: 15px;
+  justify-content: space-evenly;
+  display: flex;
+}
+
+#labelName {
+  margin-bottom: 30px;
+  background-color: #19C3FB;
+  color: #fff;
+  padding: 15px;
+} 
+
+#city{
+  width: 60%;
+}
+
+button.btn {
+  background: #19c3fb;
+  color: #fff;
+  font-weight: 700;
+}
+button.btn:hover {
+  background: #0b85f0;
+  color: #fff;
+}
