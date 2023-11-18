@@ -1,6 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
+import './css/App.css';
 import Weather from './Weather';
+import './css/mediaquery.css';
 
 function App() {
   return (

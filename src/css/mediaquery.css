@@ -1,0 +1,38 @@
+@media screen and (max-width: 767px) {
+    .weather-app {
+        justify-content: unset;
+        display: block;
+        padding: 0;
+        margin-bottom: 30px;
+    }
+
+    input#city {
+        margin-bottom: 15px;
+    }
+
+    .weather-app button {
+        margin-left: 0;
+        margin-bottom: 5px;
+    }
+
+    .outer-wrapper {
+        background-position: -133px 21px;
+        background-repeat: repeat;
+        background-attachment: fixed;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .weather-app {
+        justify-content: unset;
+        display: block;
+        padding: 0;
+        margin-bottom: 30px;
+    }
+
+    input#city {
+        margin-bottom: 15px;
+    }
+    .outer-wrapper {
+        background-position: center;
+    }
+}

@@ -63,29 +63,37 @@ const Weather = () => {
   
   return (
     <div className='outer-wrapper'>
+       <div className='appln'>
     <div className='inner-wrapper'>
+     
         
-      <h2 id='labelName'>Weather App</h2>
+      <h2 id='labelName'>Weather Report</h2>
       <div className='weather-app'>
-        <input
-            type="text"
-            className='form-control'
-            id='city'
-            placeholder="Enter city"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-        />
-        <button className='btn btn-weather' onClick={getWeather}>
-            Get Weather
-        </button>
-        <button className='btn btn-unit' onClick={switchUnit}>Switch Unit</button>
+        <div className='col-lg-6 col-12'>
+          <input
+              type="text"
+              className='form-control'
+              id='city'
+              placeholder="Enter city"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+          />
+        </div>
+        <div className='col-lg-3 col-m-12 col-12'>
+          <button className='btn btn-weather' onClick={getWeather}>
+              Get Weather
+          </button>
+        </div>
+        <div className='col-lg-3 col-m-12 col-12'>
+          <button className='btn btn-unit' onClick={switchUnit}>Switch Unit</button>
+        </div>
       </div>
       {loading && <p>Loading...</p>}
 
-      {<p className='error'>{error}</p>}
+      {error && <p className='error'>{error}</p>}
 
       {weatherData && (
-        <div>
+        <div className='desc'>
         <h3>{weatherData.name}</h3>
         <p>{weatherData.weather[0].description}</p>
         <p>
@@ -95,6 +103,7 @@ const Weather = () => {
         </p>
         </div>
       )}
+      </div>
     </div>
     </div>
   );
